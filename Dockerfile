@@ -20,6 +20,7 @@ RUN apt update && apt install -y curl zip unzip zlib1g-dev libpng-dev libcurl4-o
     # magento2 扩展配置
     docker-php-source extract; \
     docker-php-ext-configure zip --with-libzip; \
+    docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
     docker-php-ext-install bcmath; \
     docker-php-ext-install ctype; \
     docker-php-ext-install curl; \
