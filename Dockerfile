@@ -1,5 +1,8 @@
 ##
 # MALL
+# php 7.4
+# Support Magento2 Version
+# 2.4.3
 ##
 
 FROM php:7.4-fpm

@@ -1,5 +1,7 @@
 ##
 # magento2 nginx + php env
+# Support Magento2 Version
+# 2.4.3
 ##
 FROM aomitech/magento2:1.0.0-env
 
@@ -12,5 +14,5 @@ RUN apt-get update && apt-get install -y nginx; \
     chmod +x /docker-entrypoint.sh
     
 CMD ["/docker-entrypoint.sh"]
-    
+
 
