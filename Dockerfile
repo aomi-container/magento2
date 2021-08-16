@@ -7,10 +7,12 @@
 
 FROM php:7.4-fpm
 
-RUN apt-get update && apt-get install -y curl zip unzip zlib1g-dev libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev libxpm-dev libcurl4-openssl-dev libxml2-dev libonig-dev libxslt1-dev libzip-dev; \
+RUN apt-get update && apt-get install -y sendmail cron curl zip unzip zlib1g-dev libpng-dev libjpeg-dev libwebp-dev libfreetype6-dev libxpm-dev libcurl4-openssl-dev libxml2-dev libonig-dev libxslt1-dev libzip-dev; \
     # Clean up
     apt-get clean; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*; \
+    #
+    chmod 755 /var/spool/mqueue-client; \
     # Install Composer
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
     php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"; \
